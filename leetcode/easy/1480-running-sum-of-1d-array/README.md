@@ -43,25 +43,21 @@ Output: [3,4,6,16,17]
 
 ## Solution
 
-**Language:** JavaScript  
+**Language:** Python  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 54.5 MB (beats 61.51%)  
-**Submitted:** 2026-09-08T10:14:17.928Z  
+**Memory:** 12.4 MB (beats 73.33%)  
+**Submitted:** 2026-09-08T10:26:22.797Z  
 
-```js
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var runningSum = function(nums) {
-    let psum = new Array(nums.length).fill(0)
-    let sum = 0
-    for(let i = 0; i<nums.length;i++){    
-        sum = sum + nums[i]
-        psum[i] = sum
-    }
-    return psum
-};
+```py
+class Solution(object):
+    def runningSum(self, nums):
+        sum = 0
+        psum = [0 for i in range (len(nums))]
+        for i in range(len(nums)):
+            sum=sum + nums[i]
+            psum[i] = sum
+        return psum
+        
 ```
 
 ---
