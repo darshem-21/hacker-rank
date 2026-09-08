@@ -29,13 +29,10 @@ function readLine() {
 function miniMaxSum(arr) {
     // Write your code here
     let sum=0
-    let max=Math.max(...arr)
-    let min=Math.min(...arr)
-    
     for(let i=0;i<arr.length;i++){
         sum=sum + arr[i]
     }
-    console.log((sum - max)+" "+(sum - min))
+    console.log((sum-Math.max(...arr))+" "+((sum-Math.min(...arr))))
 }
 
 function main() {
