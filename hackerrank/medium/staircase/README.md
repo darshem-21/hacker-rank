@@ -40,59 +40,39 @@ $0 \lt n \le 100$ .
 
 ## Solution
 
-**Language:** JavaScript  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T19:02:29.058Z  
+**Submitted:** 2026-09-08T19:13:30.068Z  
 
-```js
-'use strict';
+```py
+#!/bin/python3
 
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+import math
+import os
+import random
+import re
+import sys
 
-let inputString = '';
-let currentLine = 0;
+#
+# Complete the 'staircase' function below.
+#
+# The function accepts INTEGER n as parameter.
+#
 
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
+def staircase(n):
+    # Write your code here
+    for i in range(1,n+1,1):
+        for j in range(1,n-i+1,1):
+            print(" ",end="") 
+        for j in range(1,i+1,1):
+            print("#",end="") 
+        print("") 
+if __name__ == '__main__':
+    n = int(input().strip())
 
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
-/*
- * Complete the 'staircase' function below.
- *
- * The function accepts INTEGER n as parameter.
- */
-
-function staircase(n) {
-    // Write your code here
-    for(let i=1;i<=n;i++){
-        let row=""
-        for(let j=1;j<=n-i;j++){
-            row += " "
-        }
-        for(let j=1;j<=i;j++){
-            row += "#"
-        }
-    console.log(row)
-    }
-}
-
-function main() {
-    const n = parseInt(readLine().trim(), 10);
-
-    staircase(n);
-}
+    staircase(n)
+ 
 
 ```
 
