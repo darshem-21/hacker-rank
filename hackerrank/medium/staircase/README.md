@@ -43,7 +43,7 @@ $0 \lt n \le 100$ .
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T19:13:30.068Z  
+**Submitted:** 2026-09-08T19:13:57.025Z  
 
 ```py
 #!/bin/python3
