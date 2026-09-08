@@ -60,66 +60,46 @@ When we add several integer values, the resulting sum might exceed the above ran
 
 ## Solution
 
-**Language:** JavaScript  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T09:55:41.302Z  
+**Submitted:** 2026-09-08T09:57:06.820Z  
 
-```js
-'use strict';
+```py
+#!/bin/python3
 
-const fs = require('fs');
+import math
+import os
+import random
+import re
+import sys
 
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+#
+# Complete the 'aVeryBigSum' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts LONG_INTEGER_ARRAY ar as parameter.
+#
 
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
-/*
- * Complete the 'aVeryBigSum' function below.
- *
- * The function is expected to return a LONG_INTEGER.
- * The function accepts LONG_INTEGER_ARRAY ar as parameter.
- */
-
-function aVeryBigSum(ar) {
-    // Write your code here
-    let sum = 0
-    ar.forEach((i)=>{
+def aVeryBigSum(ar):
+    # Write your code here
+    sum =0
+    for i in ar:
         sum = sum + i
-    })
     return sum
 
-}
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-function main() {
-    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+    ar_count = int(input().strip())
 
-    const arCount = parseInt(readLine().trim(), 10);
+    ar = list(map(int, input().rstrip().split()))
 
-    const ar = readLine().replace(/\s+$/g, '').split(' ').map(arTemp => parseInt(arTemp, 10));
+    result = aVeryBigSum(ar)
 
-    const result = aVeryBigSum(ar);
+    fptr.write(str(result) + '\n')
 
-    ws.write(result + '\n');
-
-    ws.end();
-}
+    fptr.close()
 
 ```
 
