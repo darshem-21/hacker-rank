@@ -35,46 +35,22 @@ Returns
 
 ## Solution
 
-**Language:** JavaScript  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T06:15:17.484Z  
+**Submitted:** 2026-09-08T06:17:32.979Z  
 
-```js
-process.stdin.resume();
-process.stdin.setEncoding('ascii');
-
-var input_stdin = "";
-var input_stdin_array = "";
-var input_currentline = 0;
-
-process.stdin.on('data', function (data) {
-    input_stdin += data;
-});
-
-process.stdin.on('end', function () {
-    input_stdin_array = input_stdin.split("\n");
-    main();    
-});
-
-function readLine() {
-    return input_stdin_array[input_currentline++];
-}
-
-function solveMeFirst(a, b) {
-    let x = a+b
-    return x
-  // Hint: Type return a+b below   
-}
+```py
 
 
-function main() {
-    var a = parseInt(readLine());
-    var b = parseInt(readLine());;
+def solveMeFirst(a,b):
+    return a+b
 
-    var res = solveMeFirst(a, b);
-    console.log(res);
-}
+
+num1 = int(input())
+num2 = int(input())
+res = solveMeFirst(num1,num2)
+print(res)
 
 ```
 
