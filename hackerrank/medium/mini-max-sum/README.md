@@ -40,7 +40,7 @@ $1 \le arr[i] \le 10^9$
 **Language:** JavaScript  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T14:11:04.263Z  
+**Submitted:** 2026-09-08T14:13:36.922Z  
 
 ```js
 'use strict';
@@ -74,13 +74,10 @@ function readLine() {
 function miniMaxSum(arr) {
     // Write your code here
     let sum=0
-    let max=Math.max(...arr)
-    let min=Math.min(...arr)
-    
     for(let i=0;i<arr.length;i++){
         sum=sum + arr[i]
     }
-    console.log((sum - max)+" "+(sum - min))
+    console.log((sum-Math.max(...arr))+" "+((sum-Math.min(...arr))))
 }
 
 function main() {
