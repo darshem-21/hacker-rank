@@ -31,65 +31,46 @@ The second line contains $n$ space-separated integers representing the array's e
 
 ## Solution
 
-**Language:** JavaScript  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T09:33:12.259Z  
+**Submitted:** 2026-09-08T09:38:13.526Z  
 
-```js
-'use strict';
+```py
+#!/bin/python3
 
-const fs = require('fs');
+import math
+import os
+import random
+import re
+import sys
 
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+#
+# Complete the 'simpleArraySum' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY ar as parameter.
+#
 
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
-/*
- * Complete the 'simpleArraySum' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY ar as parameter.
- */
-
-function simpleArraySum(ar) {
-    // Write your code here
-    let sum =0;
-    ar.forEach((i)=>{
-        sum = sum+i;
-    })
+def simpleArraySum(ar):
+    # Write your code here
+    sum =0;
+    for i in ar:
+        sum=sum+i
     return sum
-}
 
-function main() {
-    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    const arCount = parseInt(readLine().trim(), 10);
+    ar_count = int(input().strip())
 
-    const ar = readLine().replace(/\s+$/g, '').split(' ').map(arTemp => parseInt(arTemp, 10));
+    ar = list(map(int, input().rstrip().split()))
 
-    const result = simpleArraySum(ar);
+    result = simpleArraySum(ar)
 
-    ws.write(result + '\n');
+    fptr.write(str(result) + '\n')
 
-    ws.end();
-}
+    fptr.close()
 
 ```
 
