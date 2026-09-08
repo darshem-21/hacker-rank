@@ -40,54 +40,79 @@ Each of the next $n$ lines describes a row, $arr[i]$, and consists of $n$ space-
 
 ## Solution
 
-**Language:** Python  
+**Language:** JavaScript  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T13:21:49.923Z  
+**Submitted:** 2026-09-08T13:36:10.126Z  
 
-```py
-#!/bin/python3
+```js
+'use strict';
 
-import math
-import os
-import random
-import re
-import sys
+const fs = require('fs');
 
-#
-# Complete the 'diagonalDifference' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts 2D_INTEGER_ARRAY arr as parameter.
-#
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
-def diagonalDifference(arr):
-    sum1=0
-    sum2=0
-    n=len(arr)
-    for i in range(len(arr)):
-        for j in range(len(arr[i])):
-            if(i==j):
-                sum1=sum1+arr[i][j]
-            if(i+j==n-1):
-                sum2=sum2+arr[i][j]
-    return abs(sum1-sum2)
+let inputString = '';
+let currentLine = 0;
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
 
-    n = int(input().strip())
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
 
-    arr = []
+    main();
+});
 
-    for _ in range(n):
-        arr.append(list(map(int, input().rstrip().split())))
+function readLine() {
+    return inputString[currentLine++];
+}
 
-    result = diagonalDifference(arr)
+/*
+ * Complete the 'diagonalDifference' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts 2D_INTEGER_ARRAY arr as parameter.
+ */
 
-    fptr.write(str(result) + '\n')
+function diagonalDifference(arr) {
+    // Write your code here
+    let s1=0;
+    let s2=0;
+    let n = arr.length
+    for(let i=0;i<n;i++){
+        for(let j=0;j<arr[i].length;j++){
+            if(i===j){
+                s1=s1+arr[i][j]
+            }
+            if(i+j===n-1){
+                s2=s2+arr[i][j]
+            }
+            
+        }
+    }
+    return Math.abs(s1-s2)
+}
 
-    fptr.close()
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const n = parseInt(readLine().trim(), 10);
+
+    let arr = Array(n);
+
+    for (let i = 0; i < n; i++) {
+        arr[i] = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
+    }
+
+    const result = diagonalDifference(arr);
+
+    ws.write(result + '\n');
+
+    ws.end();
+}
 
 ```
 
