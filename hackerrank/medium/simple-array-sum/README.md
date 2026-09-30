@@ -31,46 +31,65 @@ The second line contains $n$ space-separated integers representing the array's e
 
 ## Solution
 
-**Language:** Python  
+**Language:** JavaScript  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T09:38:13.526Z  
+**Submitted:** 2026-09-30T06:12:33.517Z  
 
-```py
-#!/bin/python3
+```js
+'use strict';
 
-import math
-import os
-import random
-import re
-import sys
+const fs = require('fs');
 
-#
-# Complete the 'simpleArraySum' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts INTEGER_ARRAY ar as parameter.
-#
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
-def simpleArraySum(ar):
-    # Write your code here
-    sum =0;
-    for i in ar:
-        sum=sum+i
-    return sum
+let inputString = '';
+let currentLine = 0;
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
 
-    ar_count = int(input().strip())
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
 
-    ar = list(map(int, input().rstrip().split()))
+    main();
+});
 
-    result = simpleArraySum(ar)
+function readLine() {
+    return inputString[currentLine++];
+}
 
-    fptr.write(str(result) + '\n')
+/*
+ * Complete the 'simpleArraySum' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts INTEGER_ARRAY ar as parameter.
+ */
 
-    fptr.close()
+function simpleArraySum(ar) {
+    // Write your code here
+    let sum =0;
+    ar.forEach((i)=>{
+        sum = sum+i;
+    })
+    return sum 
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const arCount = parseInt(readLine().trim(), 10);
+
+    const ar = readLine().replace(/\s+$/g, '').split(' ').map(arTemp => parseInt(arTemp, 10));
+
+    const result = simpleArraySum(ar);
+
+    ws.write(result + '\n');
+
+    ws.end();
+}
 
 ```
 
