@@ -35,7 +35,7 @@ function simpleArraySum(ar) {
     ar.forEach((i)=>{
         sum = sum+i;
     })
-    return sum
+    return sum 
 }
 
 function main() {
